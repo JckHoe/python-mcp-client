@@ -1,0 +1,15 @@
+{
+  "mcpServers": {
+    "mcp-hfspace": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@llmindset/mcp-hfspace",
+        "--work-dir=~/Project/rei/playground",
+        "shuttleai/shuttle-jaguar",
+        "styletts2/styletts2",
+        "Qwen/QVQ-72B-preview"
+      ]
+    }
+  }
+}
