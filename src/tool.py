@@ -18,6 +18,7 @@ class Tool:
             A formatted string describing the tool.
         """
         args_desc = []
+        print(f"Tools Json : {self.input_schema}")
         if "properties" in self.input_schema:
             for param_name, param_info in self.input_schema["properties"].items():
                 arg_desc = (

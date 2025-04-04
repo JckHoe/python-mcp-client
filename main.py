@@ -1,6 +1,5 @@
 import asyncio
 import logging
-import json
 from typing import Dict, Any, List
 
 from src.server import Server
@@ -18,6 +17,7 @@ def display_tools(tools: List[Tool]) -> None:
     print("-" * 50)
     for tool in tools:
         print(f"\nTool: {tool.name}")
+        print(f"\nFor LLM: {tool.format_for_llm()}")
         print(f"Description: {tool.description}")
         if "properties" in tool.input_schema:
             print("Arguments:")
@@ -88,6 +88,7 @@ async def main() -> None:
         server, tool = tool_map[tool_name]
         try:
             arguments = await get_tool_arguments(tool)
+            logging.info(f"Sending with args {arguments} for tool {tool_name}")
             result = await server.execute_tool(tool_name, arguments)
 
             if isinstance(result, dict) and "progress" in result:
@@ -99,9 +100,7 @@ async def main() -> None:
                     f"({percentage:.1f}%)"
                 )
 
-            print(f"\nTool execution result:")
-            print(json.dumps(result, indent=2))
-            
+            print(f"\nTool execution result: {result}")
         except Exception as e:
             error_msg = f"Error executing tool: {str(e)}"
             logging.error(error_msg)
