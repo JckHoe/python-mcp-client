@@ -28,7 +28,7 @@ jobs:
       run: |
         echo "[pypi]" > ~/.pypirc
         echo "username = __token__" >> ~/.pypirc
-        echo "password = ${{ secrets.GITHUB_PAT }}" >> ~/.pypirc
+        echo "password = ${{ secrets.RELEASE_PAT }}" >> ~/.pypirc
     - name: Publish to GitHub Packages
       run: python -m twine upload --repository pypi dist/*
 
