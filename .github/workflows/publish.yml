@@ -23,8 +23,14 @@ jobs:
         pip install build twine
     - name: Build package
       run: python -m build
-    - name: Publish to GitHub Packages
+
+    - name: Configure .pypirc
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       run: |
-        python -m twine upload --repository-url https://github.com/JckHoe/python-mcp-client/packages dist/*
+        echo "[pypi]" > ~/.pypirc
+        echo "username = __token__" >> ~/.pypirc
+        echo "password = ${{ secrets.GITHUB_TOKEN }}" >> ~/.pypirc
+    - name: Publish to GitHub Packages
+      run: python -m twine upload --repository pypi dist/*
+
