@@ -25,12 +25,10 @@ jobs:
       run: python -m build
 
     - name: Configure .pypirc
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       run: |
         echo "[pypi]" > ~/.pypirc
         echo "username = __token__" >> ~/.pypirc
-        echo "password = ${{ secrets.GITHUB_TOKEN }}" >> ~/.pypirc
+        echo "password = ${{ secrets.GITHUB_PAT }}" >> ~/.pypirc
     - name: Publish to GitHub Packages
       run: python -m twine upload --repository pypi dist/*
 
