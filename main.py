@@ -1,7 +1,7 @@
 import asyncio
 import logging
 
-from server import Server
+from src.server import Server
 from src.config import Configuration
 
 async def main() -> None:
