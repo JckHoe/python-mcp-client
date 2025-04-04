@@ -7,6 +7,8 @@ from mcp import ClientSession, StdioServerParameters
 from mcp.client.stdio import stdio_client
 from typing import Any
 
+from src.tool import Tool
+
 class Server:
     """Manages MCP server connections and tool execution."""
 
