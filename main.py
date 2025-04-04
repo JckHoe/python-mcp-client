@@ -4,6 +4,12 @@ import logging
 from src.server import Server
 from src.config import Configuration
 
+# Configure logging
+logging.basicConfig(
+    level=logging.INFO,
+    format='%(asctime)s - %(name)s - %(levelname)s - %(message)s'
+)
+
 async def main() -> None:
     """Initialize and run the chat session."""
     config = Configuration()
