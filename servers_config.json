@@ -7,7 +7,8 @@
         "@llmindset/mcp-hfspace",
         "shuttleai/shuttle-jaguar",
         "styletts2/styletts2",
-        "Qwen/QVQ-72B-preview"
+        "Qwen/QVQ-72B-preview",
+        "merve/paligemma2-vqav2"
       ]
     }
   }
