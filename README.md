@@ -15,7 +15,7 @@ A command-line interface for interacting with MCP (Model Control Protocol) serve
 You can install the package directly from GitHub using pip:
 
 ```bash
-pip install git+https://github.com/yourusername/mcp-cli.git
+pip install git+https://github.com/JckHoe/python-mcp-client.git
 ```
 
 Or from PyPI:
@@ -68,6 +68,7 @@ mcp-cli -v
 ## Available Tools
 
 The tool will display all available tools from your configured MCP servers. Each tool will show:
+
 - Name
 - Description
 - Required and optional arguments
